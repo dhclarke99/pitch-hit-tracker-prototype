@@ -1,7 +1,7 @@
 // Fallback for using MaterialIcons on Android and web.
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
+import { SymbolViewProps, SymbolWeight } from 'expo-symbols';
 import { ComponentProps } from 'react';
 import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
 
@@ -18,6 +18,30 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
+  'figure.run': 'directions-run',
+  'dumbbell.fill': 'fitness-center',
+  'sportscourt.fill': 'sports-baseball',
+  'message.fill': 'message',
+  'text.bubble.fill': 'chat-bubble',
+  'bubble.left.fill': 'chat-bubble',
+  'person.fill': 'person',
+  'chart.bar.fill': 'bar-chart',
+  'person.circle.fill': 'account-circle',
+  'star.fill': 'star',
+  'trophy.fill': 'emoji-events',
+  'dollarsign.circle.fill': 'attach-money',
+  'arrow.up.right': 'trending-up',
+  'arrow.down.right': 'trending-down',
+  'minus': 'remove',
+  'gearshape.fill': 'settings',
+  'bell.fill': 'notifications',
+  'questionmark.circle.fill': 'help',
+  'bolt.fill': 'bolt',
+  'location.fill': 'location-on',
+  'checkmark.circle.fill': 'check-circle',
+  'checkmark': 'check',
+  'person.2.fill': 'people',
+  'person.3.fill': 'group',
 } as IconMapping;
 
 /**

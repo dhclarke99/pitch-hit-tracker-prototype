@@ -24,6 +24,7 @@ const AsyncStorage = {
 const PITCH_SESSIONS_KEY = '@pitch_sessions';
 const HIT_SESSIONS_KEY = '@hit_sessions';
 const HITTING_SESSIONS_KEY = '@hitting_sessions';
+const SUBSCRIPTION_TIER_KEY = '@subscription_tier';
 
 // Types
 export interface PitchSession {
@@ -172,6 +173,28 @@ export async function getAllSessions(): Promise<(PitchSession | HitSession)[]> {
   } catch (error) {
     console.error('Error getting all sessions:', error);
     return [];
+  }
+}
+
+// Subscription Tier Storage
+export type SubscriptionTier = 'pro' | 'elite';
+
+export async function getSubscriptionTier(): Promise<SubscriptionTier> {
+  try {
+    const data = await AsyncStorage.getItem(SUBSCRIPTION_TIER_KEY);
+    return (data as SubscriptionTier) || 'pro'; // Default to 'pro'
+  } catch (error) {
+    console.error('Error getting subscription tier:', error);
+    return 'pro';
+  }
+}
+
+export async function setSubscriptionTier(tier: SubscriptionTier): Promise<void> {
+  try {
+    await AsyncStorage.setItem(SUBSCRIPTION_TIER_KEY, tier);
+  } catch (error) {
+    console.error('Error setting subscription tier:', error);
+    throw error;
   }
 }
 

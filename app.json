@@ -10,7 +10,8 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dhclarke99.pitchhittrackerprototype"
+      "bundleIdentifier": "com.dhclarke99.pitchhittrackerprototype",
+      "jsEngine": "hermes"
     },
     "android": {
       "adaptiveIcon": {

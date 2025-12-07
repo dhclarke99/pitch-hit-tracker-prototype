@@ -8,11 +8,25 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const resolvedScheme = colorScheme ?? 'light';
+  const colors = Colors[resolvedScheme];
+
+  console.log('=== TAB LAYOUT COLOR DEBUG ===');
+  console.log('colorScheme:', colorScheme);
+  console.log('resolvedScheme:', resolvedScheme);
+  console.log('colors.background:', colors.background);
+  console.log('tabBarStyle backgroundColor:', colors.background);
+  console.log('==============================');
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: colors.tint,
+        tabBarInactiveTintColor: colors.tabIconDefault,
+        tabBarStyle: {
+          backgroundColor: colors.background,
+          borderTopColor: '#E5E5E5',
+        },
         headerShown: false,
         tabBarButton: HapticTab,
       }}>
@@ -24,54 +38,64 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="pitch"
+        name="training"
         options={{
-          title: 'Pitch',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="baseball.fill" color={color} />,
+          title: 'Training',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="dumbbell.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="hit"
+        name="track"
         options={{
-          title: 'Hit',
+          title: '+Track',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="sportscourt.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="history"
+        name="accountability"
         options={{
-          title: 'History',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="clock.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="training"
-        options={{
-          title: 'Training',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="figure.run" color={color} />,
+          title: 'Accountability',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.2.fill" color={color} />,
         }}
       />
       <Tabs.Screen
         name="messages"
         options={{
-          title: 'Messages',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="message.fill" color={color} />,
+          href: null,
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="progress"
         options={{
-          title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+          title: 'Progress',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="chart.bar.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="pitch"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="hit"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="history"
+        options={{
+          href: null,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          href: null,
         }}
       />
     </Tabs>
   );
 }
+
